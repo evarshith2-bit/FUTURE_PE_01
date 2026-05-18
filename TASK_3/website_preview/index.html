@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Velvet Touch Salon — SEO Content Pack</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sage: #4A6741;
+    --gold: #C9A96E;
+    --cream: #FAF7F2;
+    --deep: #1E1A16;
+    --warm: #8B6F4E;
+    --blush: #F2E8DF;
+    --light: #FDF9F5;
+    --muted: #6B5B4E;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--deep); overflow-x: hidden; }
+
+  nav {
+    background: var(--deep);
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand { font-family: 'Syne', sans-serif; color: var(--gold); font-size: 1.2rem; font-weight: 700; }
+  .nav-tag { font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--deep) 0%, #3A2E25 100%);
+    padding: 6rem 5% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after { content: '🌿'; position: absolute; font-size: 18rem; opacity: 0.04; right: 2%; bottom: -2rem; line-height: 1; }
+  .hero-badge { display: inline-block; background: rgba(201,169,110,0.2); border: 1px solid rgba(201,169,110,0.35); color: var(--gold); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 100px; margin-bottom: 2rem; }
+  .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: white; line-height: 1.1; font-weight: 800; margin-bottom: 1rem; }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.55); max-width: 560px; line-height: 1.8; margin-bottom: 3rem; font-weight: 300; }
+  .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--gold); }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
+
+  section { padding: 5rem 5%; }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; font-weight: 500; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--deep); margin-bottom: 0.5rem; font-weight: 700; }
+  .section-sub { font-size: 0.95rem; color: var(--muted); font-weight: 300; margin-bottom: 3rem; }
+
+  /* CLUSTER MAP */
+  .cluster { background: var(--blush); }
+  .cluster-map { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; max-width: 800px; margin: 0 auto; }
+  .pillar-node {
+    background: var(--deep);
+    color: white;
+    border-radius: 16px;
+    padding: 1.5rem 2.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+  }
+  .pillar-node::after { content: '↓'; position: absolute; bottom: -1.8rem; left: 50%; transform: translateX(-50%); font-size: 1.5rem; color: var(--gold); }
+  .pillar-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .pillar-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; }
+  .pillar-kw { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem; }
+  .supporting-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; width: 100%; padding-top: 1rem; }
+  .support-node {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    flex: 1;
+    min-width: 140px;
+    max-width: 160px;
+    text-align: center;
+    border: 1px solid rgba(30,26,22,0.08);
+    position: relative;
+  }
+  .support-node::before { content: '↗'; position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%); font-size: 1rem; color: var(--sage); }
+  .support-num { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--gold); opacity: 0.5; }
+  .support-title { font-size: 0.78rem; color: var(--deep); font-weight: 500; margin-top: 0.3rem; line-height: 1.4; }
+  .support-kw { font-size: 0.7rem; color: var(--muted); margin-top: 0.4rem; font-style: italic; }
+
+  /* KEYWORD TABLE */
+  .keywords { background: var(--light); }
+  .kw-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+  .kw-table th { background: var(--deep); color: var(--gold); font-family: 'Syne', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 1rem 1.2rem; text-align: left; }
+  .kw-table td { padding: 1rem 1.2rem; font-size: 0.88rem; border-bottom: 1px solid rgba(30,26,22,0.06); color: var(--deep); font-weight: 300; }
+  .kw-table tr:hover td { background: var(--blush); }
+  .intent-badge { display: inline-block; font-size: 0.68rem; padding: 0.25rem 0.7rem; border-radius: 100px; font-weight: 500; letter-spacing: 0.05em; }
+  .intent-commercial { background: #FEF3C7; color: #92400E; }
+  .intent-informational { background: #DCFCE7; color: #166534; }
+  .vol-high { color: var(--sage); font-weight: 500; }
+  .vol-med { color: var(--warm); font-weight: 500; }
+
+  /* BLOG PREVIEW */
+  .blogs { background: var(--cream); }
+  .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(30,26,22,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(30,26,22,0.09); }
+  .blog-card-header { padding: 1.5rem; background: var(--blush); }
+  .blog-type { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.6rem; }
+  .blog-type.pillar { color: var(--deep); }
+  .blog-type.supporting { color: var(--sage); }
+  .blog-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--deep); line-height: 1.35; }
+  .blog-card-body { padding: 1.5rem; }
+  .blog-meta { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .blog-meta-item { font-size: 0.75rem; color: var(--muted); display: flex; align-items: center; gap: 0.3rem; }
+  .blog-outline { list-style: none; }
+  .blog-outline li { font-size: 0.82rem; color: var(--muted); padding: 0.35rem 0; border-bottom: 1px solid rgba(30,26,22,0.05); font-weight: 300; display: flex; align-items: center; gap: 0.5rem; }
+  .blog-outline li::before { content: '▸'; color: var(--gold); font-size: 0.7rem; }
+
+  /* SEO STRATEGY */
+  .strategy { background: var(--deep); }
+  .strategy .section-title { color: white; }
+  .strategy .section-sub { color: rgba(255,255,255,0.45); }
+  .strategy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .strategy-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; }
+  .strategy-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .strategy-card h4 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+  .strategy-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
+
+  footer { background: var(--deep); padding: 2.5rem 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.07); }
+  .footer-brand { font-family: 'Syne', sans-serif; color: var(--gold); font-size: 1rem; font-weight: 700; }
+  .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); font-style: italic; text-align: right; }
+
+  @media(max-width:768px) {
+    .supporting-row { gap: 0.8rem; }
+    .support-node { min-width: 120px; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-note { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Velvet Touch Salon & Spa</div>
+  <div class="nav-tag">SEO Content Pack — FUTURE_PE_03</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Prompt Engineering Task 3 · Future Interns</div>
+  <h1>SEO Content Cluster<br><span>Velvet Touch Salon, Hyderabad</span></h1>
+  <p class="hero-sub">A complete AI-generated SEO content pack — 1 pillar blog, 5 supporting articles, keyword strategy, and local SEO optimization. Ready to publish and rank.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Blog Articles</div></div>
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Target Keywords</div></div>
+    <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Reusable Prompts</div></div>
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Hyderabad Areas Targeted</div></div>
+  </div>
+</section>
+
+<!-- CONTENT CLUSTER MAP -->
+<section class="cluster">
+  <div class="section-label">Content Strategy</div>
+  <h2 class="section-title">Content Cluster Map</h2>
+  <p class="section-sub">All blogs interlink — building topical authority for the entire website</p>
+  <div class="cluster-map">
+    <div class="pillar-node">
+      <div class="pillar-label">⭐ Pillar Blog</div>
+      <div class="pillar-title">Best Salon in Hyderabad – Services, Prices & What to Expect</div>
+      <div class="pillar-kw">Primary Keyword: best salon in Hyderabad</div>
+    </div>
+    <div class="supporting-row">
+      <div class="support-node">
+        <div class="support-num">01</div>
+        <div class="support-title">Bridal Makeup in Hyderabad</div>
+        <div class="support-kw">Commercial Intent</div>
+      </div>
+      <div class="support-node">
+        <div class="support-num">02</div>
+        <div class="support-title">Keratin Treatment Cost Hyderabad</div>
+        <div class="support-kw">Commercial Intent</div>
+      </div>
+      <div class="support-node">
+        <div class="support-num">03</div>
+        <div class="support-title">Best Facial for Indian Skin</div>
+        <div class="support-kw">Informational Intent</div>
+      </div>
+      <div class="support-node">
+        <div class="support-num">04</div>
+        <div class="support-title">How to Choose a Salon in Hyderabad</div>
+        <div class="support-kw">Informational Intent</div>
+      </div>
+      <div class="support-node">
+        <div class="support-num">05</div>
+        <div class="support-title">Self-Care for Working Women</div>
+        <div class="support-kw">Informational Intent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEYWORD STRATEGY -->
+<section class="keywords">
+  <div class="section-label">Keyword Strategy</div>
+  <h2 class="section-title">Target Keywords & Search Intent</h2>
+  <p class="section-sub">Each blog targets a specific keyword matched to the user's search intent</p>
+  <table class="kw-table">
+    <thead>
+      <tr><th>Blog</th><th>Primary Keyword</th><th>Search Intent</th><th>Est. Volume</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pillar Blog</td><td>best salon in Hyderabad</td><td><span class="intent-badge intent-commercial">Commercial</span></td><td class="vol-high">High</td></tr>
+      <tr><td>Supporting 1</td><td>bridal makeup in Hyderabad</td><td><span class="intent-badge intent-commercial">Commercial</span></td><td class="vol-high">High</td></tr>
+      <tr><td>Supporting 2</td><td>keratin hair treatment cost Hyderabad</td><td><span class="intent-badge intent-commercial">Commercial</span></td><td class="vol-med">Medium</td></tr>
+      <tr><td>Supporting 3</td><td>best facial for Indian skin</td><td><span class="intent-badge intent-informational">Informational</span></td><td class="vol-high">High</td></tr>
+      <tr><td>Supporting 4</td><td>how to choose a salon in Hyderabad</td><td><span class="intent-badge intent-informational">Informational</span></td><td class="vol-med">Medium</td></tr>
+      <tr><td>Supporting 5</td><td>self-care routine for working women</td><td><span class="intent-badge intent-informational">Informational</span></td><td class="vol-med">Medium</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- BLOG PREVIEWS -->
+<section class="blogs">
+  <div class="section-label">Content Pack</div>
+  <h2 class="section-title">All 6 Blog Articles</h2>
+  <p class="section-sub">Full articles in /outputs/ — outlines shown here</p>
+  <div class="blogs-grid">
+
+    <div class="blog-card">
+      <div class="blog-card-header">
+        <div class="blog-type pillar">⭐ Pillar Blog · ~1,800 words</div>
+        <h3>Best Salon in Hyderabad – Services, Prices & What to Expect</h3>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="blog-meta-item">🎯 best salon in Hyderabad</span>
+          <span class="blog-meta-item">📍 Hyderabad, Telangana</span>
+        </div>
+        <ul class="blog-outline">
+          <li>Why Hyderabad Women Trust Velvet Touch</li>
+          <li>Complete List of Salon Services</li>
+          <li>Salon Prices — What to Expect</li>
+          <li>How to Book an Appointment</li>
+          <li>FAQ Section (4 questions)</li>
+          <li>Internal Links to All 5 Supporting Blogs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-card-header">
+        <div class="blog-type supporting">Supporting Blog 1 · ~900 words</div>
+        <h3>Bridal Makeup in Hyderabad – Packages, Prices & What to Ask</h3>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="blog-meta-item">🎯 bridal makeup in Hyderabad</span>
+        </div>
+        <ul class="blog-outline">
+          <li>What's Included in a Bridal Package</li>
+          <li>How to Choose a Bridal Makeup Artist</li>
+          <li>Pre-Bridal Timeline Table</li>
+          <li>FAQ Section + Internal Link to Pillar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-card-header">
+        <div class="blog-type supporting">Supporting Blog 2 · ~900 words</div>
+        <h3>Keratin Hair Treatment Cost in Hyderabad – Is It Worth It?</h3>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="blog-meta-item">🎯 keratin treatment cost Hyderabad</span>
+        </div>
+        <ul class="blog-outline">
+          <li>What is Keratin Treatment?</li>
+          <li>What Affects the Cost</li>
+          <li>How Long It Lasts in Hyderabad</li>
+          <li>Keratin vs Other Treatments (Table)</li>
+          <li>FAQ + Internal Link to Pillar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-card-header">
+        <div class="blog-type supporting">Supporting Blog 3 · ~900 words</div>
+        <h3>Best Facial Treatments for Indian Skin – A Complete Guide</h3>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="blog-meta-item">🎯 best facial for Indian skin</span>
+        </div>
+        <ul class="blog-outline">
+          <li>Understanding Indian Skin Types</li>
+          <li>4 Best Facial Treatments Explained</li>
+          <li>Which Facial Before an Event?</li>
+          <li>FAQ + Internal Link to Pillar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-card-header">
+        <div class="blog-type supporting">Supporting Blog 4 · ~800 words</div>
+        <h3>How to Choose the Right Salon in Hyderabad – 7 Things to Check</h3>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="blog-meta-item">🎯 how to choose a salon in Hyderabad</span>
+        </div>
+        <ul class="blog-outline">
+          <li>7 Practical Checklist Items</li>
+          <li>How to Read Reviews Correctly</li>
+          <li>Red Flags to Watch For</li>
+          <li>FAQ + Internal Link to Pillar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-card-header">
+        <div class="blog-type supporting">Supporting Blog 5 · ~900 words</div>
+        <h3>Self-Care Routine for Working Women in Hyderabad</h3>
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <span class="blog-meta-item">🎯 self-care routine for working women</span>
+        </div>
+        <ul class="blog-outline">
+          <li>Daily Habits (10 Minutes or Less)</li>
+          <li>Weekly Self-Care Rituals</li>
+          <li>Monthly Salon Visit Strategy</li>
+          <li>Hyderabad-Specific Tips</li>
+          <li>FAQ + Internal Link to Pillar</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEO STRATEGY -->
+<section class="strategy">
+  <div class="section-label">SEO Strategy</div>
+  <h2 class="section-title" style="color:white">How This Content Ranks</h2>
+  <p class="section-sub">6 techniques applied across every article in the cluster</p>
+  <div class="strategy-grid">
+    <div class="strategy-card"><div class="strategy-icon">🔑</div><h4>Keyword in H1</h4><p>Primary keyword appears in the H1 of every blog — the strongest on-page SEO signal Google reads.</p></div>
+    <div class="strategy-card"><div class="strategy-icon">📍</div><h4>Local Modifiers</h4><p>"In Hyderabad" appears in headings and copy throughout — capturing city-specific and near-me searches.</p></div>
+    <div class="strategy-card"><div class="strategy-icon">🔗</div><h4>Internal Linking</h4><p>Every supporting blog links back to the pillar. The pillar links to all 5 supporting blogs. Topical authority builds across the cluster.</p></div>
+    <div class="strategy-card"><div class="strategy-icon">🎯</div><h4>Search Intent Match</h4><p>Commercial blogs (bridal, keratin) target buyers. Informational blogs (facials, self-care) build trust and rank for research queries.</p></div>
+    <div class="strategy-card"><div class="strategy-icon">❓</div><h4>FAQ Sections</h4><p>Every blog has 3–4 FAQs targeting "People Also Ask" boxes on Google — free additional visibility in search results.</p></div>
+    <div class="strategy-card"><div class="strategy-icon">🏙️</div><h4>Neighbourhood Targeting</h4><p>Banjara Hills, Jubilee Hills, Kondapur, Madhapur & Gachibowli mentioned across the cluster for hyper-local search capture.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Velvet Touch Salon & Spa — SEO Content Pack</div>
+  <div class="footer-note">Future Interns · Prompt Engineering Task 3 · FUTURE_PE_03<br>Intern: Eedhi Venkata Sai Varshith · CIN: FIT/APR26/PE2489</div>
+</footer>
+
+</body>
+</html>
