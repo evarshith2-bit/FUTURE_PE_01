@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Brewed & Beloved Café — Website Copy Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F9F3EA;
+    --brown: #3B1F0E;
+    --mocha: #6B3A2A;
+    --caramel: #C07D3E;
+    --latte: #D4A96A;
+    --foam: #FDF8F2;
+    --green: #3A5240;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--brown);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: var(--brown);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--latte);
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    background: var(--brown);
+    display: flex;
+    align-items: center;
+    padding: 6rem 5%;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,125,62,0.18) 0%, transparent 70%);
+    top: -100px; right: -100px;
+  }
+  .hero::after {
+    content: '☕';
+    position: absolute;
+    font-size: 18rem;
+    opacity: 0.04;
+    right: 5%;
+    bottom: -2rem;
+    line-height: 1;
+  }
+  .hero-content { max-width: 700px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(192,125,62,0.2);
+    color: var(--latte);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(192,125,62,0.3);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--latte);
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(249,243,234,0.75);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-intro {
+    font-size: 0.95rem;
+    color: rgba(249,243,234,0.6);
+    line-height: 1.8;
+    max-width: 560px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    border-left: 2px solid var(--caramel);
+    padding-left: 1.2rem;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--caramel);
+    color: var(--foam);
+    padding: 0.9rem 2.2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary:hover { background: var(--latte); transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid rgba(249,243,234,0.3);
+    color: var(--cream);
+    padding: 0.9rem 2.2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+    background: transparent;
+    margin-left: 1rem;
+  }
+  .btn-outline:hover { border-color: var(--latte); transform: translateY(-2px); }
+
+  /* SECTION SHARED */
+  section { padding: 6rem 5%; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--caramel);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--brown);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  /* SERVICES */
+  .services { background: var(--foam); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.2rem;
+    border: 1px solid rgba(59,31,14,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--caramel), var(--latte));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(59,31,14,0.1); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--brown);
+    margin-bottom: 0.8rem;
+  }
+  .service-card p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--mocha);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+  .service-tagline {
+    font-size: 0.8rem;
+    color: var(--caramel);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    background: var(--green);
+    padding: 2.5rem 5%;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    color: rgba(249,243,234,0.9);
+    font-size: 0.88rem;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+
+  /* CTA SECTIONS */
+  .cta-visit {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .cta-visit-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    margin-bottom: 1rem;
+    color: var(--brown);
+    line-height: 1.2;
+  }
+  .cta-visit-text p {
+    font-size: 0.97rem;
+    line-height: 1.8;
+    color: var(--mocha);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+  .address-block {
+    background: var(--foam);
+    border-radius: 12px;
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(59,31,14,0.08);
+  }
+  .address-block p { font-size: 0.9rem; color: var(--mocha); margin-bottom: 0.3rem; font-weight: 300; }
+  .cta-map-placeholder {
+    background: linear-gradient(135deg, var(--brown) 0%, var(--mocha) 100%);
+    border-radius: 20px;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: rgba(255,255,255,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-map-placeholder span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: rgba(249,243,234,0.5);
+    position: absolute;
+    bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .cta-booking {
+    background: var(--brown);
+    text-align: center;
+    padding: 6rem 5%;
+  }
+  .cta-booking h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .cta-booking p { color: rgba(249,243,234,0.7); font-size: 1rem; line-height: 1.8; max-width: 540px; margin: 0 auto 1.2rem; font-weight: 300; }
+  .trust-line { color: var(--latte); font-size: 0.85rem; margin-bottom: 2.5rem; font-style: italic; }
+
+  .cta-social {
+    background: var(--latte);
+    text-align: center;
+    padding: 5rem 5%;
+  }
+  .cta-social h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--brown);
+    margin-bottom: 0.8rem;
+  }
+  .cta-social p { color: var(--mocha); font-size: 0.97rem; line-height: 1.8; max-width: 500px; margin: 0 auto 2rem; font-weight: 300; }
+  .btn-dark {
+    display: inline-block;
+    background: var(--brown);
+    color: var(--cream);
+    padding: 0.9rem 2.2rem;
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+  }
+  .btn-dark:hover { transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 3rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--latte);
+  }
+  .footer-note {
+    font-size: 0.78rem;
+    color: rgba(249,243,234,0.4);
+    font-style: italic;
+    text-align: right;
+  }
+
+  /* PROMPT TAG */
+  .prompt-tag {
+    display: inline-block;
+    background: rgba(192,125,62,0.12);
+    border: 1px solid rgba(192,125,62,0.25);
+    color: var(--caramel);
+    font-size: 0.72rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 768px) {
+    .cta-visit { grid-template-columns: 1fr; }
+    .trust-strip { gap: 2rem; }
+    .btn-outline { margin-left: 0; margin-top: 1rem; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-note { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Brewed & Beloved</div>
+  <ul class="nav-links">
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Our Space</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Visit Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Specialty Coffee · All-Day Brunch · Hyderabad</div>
+    <h1>Your Favourite Corner of the <em>City Awaits.</em></h1>
+    <p class="hero-sub">For the ones who believe great coffee deserves a great space — Brewed & Beloved is where Hyderabad's go-getters, dreamers, and brunch lovers come to slow down, sip something special, and stay a little longer.</p>
+    <p class="hero-intro">Tucked into the heart of Hyderabad, Brewed & Beloved was born from one simple belief: the best part of your day should happen over a great cup of coffee. We source our beans from single-origin farms, craft our brunch menu with locally grown ingredients, and design every corner of our space to make you feel like you never want to leave.</p>
+    <a href="#" class="btn-primary">Reserve Your Table</a>
+    <a href="#" class="btn-outline">View Our Menu</a>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">Single-origin beans. Every single cup.</div>
+  <div class="trust-item">Locally sourced. Always fresh.</div>
+  <div class="trust-item">Made with care. Served with warmth.</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">More Than Coffee.<br>A Full Experience.</h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">☕</div>
+      <div class="prompt-tag">PROMPT 02 · Service 1</div>
+      <h3>Specialty Coffee Bar</h3>
+      <p>There's coffee, and then there's <em>this</em> coffee. Our beans are sourced from single-origin farms and brewed to order — whether you're after a smooth pour-over, a punchy cold brew, or a perfectly pulled espresso that actually tastes like something. Every cup is crafted by baristas who genuinely care what's in your glass.</p>
+      <div class="service-tagline">From bean to cup, with intention.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🍳</div>
+      <div class="prompt-tag">PROMPT 02 · Service 2</div>
+      <h3>All-Day Brunch Menu</h3>
+      <p>Breakfast rules. That's why we serve it all day. From fluffy stacked pancakes and perfectly runny eggs on sourdough, to wholesome grain bowls with seasonal vegetables and local spices — our kitchen keeps things fresh, honest, and deeply satisfying. Open 8am to 4pm, because good food shouldn't have a curfew.</p>
+      <div class="service-tagline">Brunch o'clock, all day long.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💻</div>
+      <div class="prompt-tag">PROMPT 02 · Service 3</div>
+      <h3>Work-Friendly Space</h3>
+      <p>Your home office, but with better coffee and zero distractions from the fridge. Designed for people who work best when they're out of the house — with fast Wi-Fi, charging points at every seat, quiet corners for focus, and long communal tables for days when you want a little ambient energy around you.</p>
+      <div class="service-tagline">Work better. Sip often.</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎉</div>
+      <div class="prompt-tag">PROMPT 02 · Service 4</div>
+      <h3>Private Bookings</h3>
+      <p>Whether it's a birthday brunch, a small team offsite, or just an excuse to take over a beautiful space — we've got you. Brewed & Beloved can host private events for up to 30 guests, with customizable menus and a setting that makes every gathering feel effortless and special.</p>
+      <div class="service-tagline">Your event. Our café. Perfect together.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA: VISIT -->
+<section class="cta-visit">
+  <div class="cta-visit-text">
+    <div class="prompt-tag">PROMPT 03 · CTA 1</div>
+    <h2>Come In. We've Been Expecting You.</h2>
+    <p>You don't need a special occasion to treat yourself to something good — just good coffee, good food, and a space that actually feels like somewhere. We're right here in Hyderabad, and we'd love to have you.</p>
+    <div class="address-block">
+      <p>📍 123 Brew Lane, Banjara Hills, Hyderabad – 500034</p>
+      <p>🕗 Open Monday–Sunday &nbsp;|&nbsp; 8:00 AM – 8:00 PM</p>
+    </div>
+    <a href="#" class="btn-primary">Plan Your Visit →</a>
+  </div>
+  <div class="cta-map-placeholder">
+    🗺️
+    <span>[ Map Embed Goes Here ]</span>
+  </div>
+</section>
+
+<!-- CTA: BOOKING -->
+<section class="cta-booking">
+  <div class="prompt-tag" style="border-color:rgba(212,169,106,0.3);color:var(--latte);background:rgba(212,169,106,0.1)">PROMPT 03 · CTA 2</div>
+  <h2>Reserve Your Spot at the Table.</h2>
+  <p>Planning a catch-up brunch, a team lunch, or a private event for up to 30 guests? We make it easy to book — just tell us when and how many, and we'll take care of the rest.</p>
+  <p class="trust-line">✅ No booking fee. Cancel anytime.</p>
+  <a href="#" class="btn-primary">Reserve Your Table →</a>
+</section>
+
+<!-- CTA: SOCIAL -->
+<section class="cta-social">
+  <div class="prompt-tag" style="color:var(--mocha);border-color:rgba(59,31,14,0.2);background:rgba(59,31,14,0.07)">PROMPT 03 · CTA 3</div>
+  <h2>Follow the Coffee. Follow the Vibes.</h2>
+  <p>From daily specials and behind-the-scenes kitchen moments to the prettiest latte art in Hyderabad — our Instagram is where the café comes alive. Come say hi, and tag us when you visit.</p>
+  <p style="font-style:italic;color:var(--mocha);margin-top:-1rem;margin-bottom:2rem;font-size:0.9rem;">📸 @brewedandbeloved</p>
+  <a href="#" class="btn-dark">See Daily Specials →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Brewed & Beloved Café</div>
+  <div class="footer-note">
+    Website copy generated using structured AI prompts<br>
+    Future Interns — Prompt Engineering Task 1 · FUTURE_PE_01<br>
+    Intern: Eedhi Venkata Sai Varshith · CIN: FIT/APR26/PE2489
+  </div>
+</footer>
+
+</body>
+</html>
