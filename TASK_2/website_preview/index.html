@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GlowLab Skincare — UGC Ad Content Pack</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blush: #F9E8E0;
+    --rose: #C97B63;
+    --deep: #2D1B14;
+    --mauve: #8C4F3F;
+    --cream: #FDF6F2;
+    --gold: #D4A96A;
+    --soft: #F2D9D0;
+    --green: #3A5240;
+    --purple: #6B4E8C;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--deep); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    background: var(--deep);
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand { font-family: 'Syne', sans-serif; color: var(--blush); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; }
+  .nav-tag { font-size: 0.75rem; color: var(--rose); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--deep) 0%, var(--mauve) 100%);
+    padding: 6rem 5% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '✨';
+    position: absolute;
+    font-size: 20rem;
+    opacity: 0.04;
+    right: -2rem;
+    top: -2rem;
+    line-height: 1;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,123,99,0.25);
+    border: 1px solid rgba(201,123,99,0.4);
+    color: var(--blush);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: white;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--rose); }
+  .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 560px; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; }
+  .stat-item { }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--rose); }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
+
+  /* SECTION */
+  section { padding: 5rem 5%; }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.8rem; font-weight: 500; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--deep); margin-bottom: 0.5rem; font-weight: 700; }
+  .section-sub { font-size: 0.95rem; color: var(--mauve); font-weight: 300; margin-bottom: 3rem; }
+
+  /* HOOKS */
+  .hooks { background: var(--cream); }
+  .hooks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .hook-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.8rem;
+    border: 1px solid rgba(45,27,20,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .hook-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(45,27,20,0.08); }
+  .hook-angle {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+  .angle-curiosity { background: #EEF0FF; color: #4B5AE0; }
+  .angle-pain { background: #FFE8E8; color: #D04040; }
+  .angle-result { background: #E8F7EE; color: #2D8A52; }
+  .angle-controversy { background: #FFF3E0; color: #D07020; }
+  .angle-relatability { background: #FCE8F4; color: #B0408A; }
+  .angle-question { background: #E8F4FF; color: #2070C0; }
+  .angle-story { background: #F3EEF8; color: #6B3EA0; }
+  .angle-social { background: #ECFDF5; color: #166534; }
+  .hook-text { font-size: 1rem; line-height: 1.6; color: var(--deep); font-style: italic; margin-bottom: 1rem; font-weight: 400; }
+  .hook-why { font-size: 0.8rem; color: var(--mauve); line-height: 1.6; font-weight: 300; }
+
+  /* SCRIPTS */
+  .scripts { background: var(--blush); }
+  .scripts-tabs { display: flex; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--rose);
+    background: transparent;
+    color: var(--mauve);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab-btn.active { background: var(--rose); color: white; border-color: var(--rose); }
+  .script-panel { display: none; }
+  .script-panel.active { display: block; }
+  .script-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 720px;
+  }
+  .script-platform {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  .platform-icon { font-size: 1.5rem; }
+  .platform-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--deep); }
+  .platform-time { font-size: 0.8rem; color: var(--mauve); font-weight: 300; }
+  .script-section { margin-bottom: 1.5rem; }
+  .script-section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--rose);
+    margin-bottom: 0.5rem;
+  }
+  .script-note {
+    font-size: 0.8rem;
+    color: var(--mauve);
+    font-style: italic;
+    margin-bottom: 0.4rem;
+    font-weight: 300;
+  }
+  .script-text { font-size: 0.97rem; line-height: 1.75; color: var(--deep); font-weight: 300; }
+
+  /* CAPTIONS */
+  .captions { background: var(--cream); }
+  .captions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .caption-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(45,27,20,0.07);
+  }
+  .caption-platform { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--deep); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .caption-body {
+    background: var(--blush);
+    border-radius: 10px;
+    padding: 1.2rem;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--deep);
+    font-weight: 300;
+    white-space: pre-line;
+  }
+
+  /* CTA VARIATIONS */
+  .ctas { background: var(--deep); }
+  .ctas .section-title { color: white; }
+  .ctas .section-label { color: var(--rose); }
+  .ctas .section-sub { color: rgba(255,255,255,0.5); }
+  .cta-list { display: flex; flex-direction: column; gap: 1rem; max-width: 700px; }
+  .cta-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cta-item-text { font-size: 1rem; color: white; font-style: italic; font-weight: 300; }
+  .cta-item-tag { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); background: rgba(201,123,99,0.15); padding: 0.3rem 0.8rem; border-radius: 100px; white-space: nowrap; }
+
+  /* FRAMEWORK */
+  .framework { background: var(--soft); }
+  .framework-steps { display: flex; gap: 0; flex-wrap: wrap; }
+  .framework-step {
+    flex: 1;
+    min-width: 140px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .framework-step::after {
+    content: '→';
+    position: absolute;
+    right: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--rose);
+    font-weight: 300;
+  }
+  .framework-step:last-child::after { display: none; }
+  .step-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--rose); opacity: 0.4; }
+  .step-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--deep); margin: 0.3rem 0; }
+  .step-desc { font-size: 0.8rem; color: var(--mauve); font-weight: 300; line-height: 1.5; }
+
+  /* FOOTER */
+  footer { background: var(--deep); padding: 2.5rem 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand { font-family: 'Syne', sans-serif; color: var(--rose); font-size: 1rem; font-weight: 700; }
+  .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); font-style: italic; text-align: right; }
+
+  @media(max-width:768px) {
+    .hero-stats { gap: 1.5rem; }
+    .framework-steps { flex-direction: column; }
+    .framework-step::after { content: '↓'; right: auto; left: 50%; top: auto; bottom: -1rem; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-note { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">GlowLab Skincare</div>
+  <div class="nav-tag">UGC Ad Content Pack — FUTURE_PE_02</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Prompt Engineering Task 2 · Future Interns</div>
+  <h1>UGC Ad Content Pack<br><span>GlowLab Vitamin C Serum</span></h1>
+  <p class="hero-sub">A complete AI-generated UGC ad content pack — 8 hooks, 3 platform scripts, captions, and 5 CTA variations. Ready to hand to a brand or marketing agency.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">Scroll-Stopping Hooks</div></div>
+    <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Platform Ad Scripts</div></div>
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">CTA Variations</div></div>
+    <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Reusable Prompts</div></div>
+  </div>
+</section>
+
+<!-- AD FRAMEWORK -->
+<section class="framework">
+  <div class="section-label">Ad Framework</div>
+  <h2 class="section-title">Problem → Agitate → Solution → CTA</h2>
+  <p class="section-sub">Every script follows this proven direct response framework</p>
+  <div class="framework-steps">
+    <div class="framework-step"><div class="step-num">01</div><div class="step-name">HOOK</div><div class="step-desc">Stop the scroll in first 3 seconds</div></div>
+    <div class="framework-step"><div class="step-num">02</div><div class="step-name">PROBLEM</div><div class="step-desc">Mirror the viewer's exact pain point</div></div>
+    <div class="framework-step"><div class="step-num">03</div><div class="step-name">AGITATE</div><div class="step-desc">"I tried everything…" makes it personal</div></div>
+    <div class="framework-step"><div class="step-num">04</div><div class="step-name">SOLUTION</div><div class="step-desc">Introduce product naturally, not salesy</div></div>
+    <div class="framework-step"><div class="step-num">05</div><div class="step-name">PROOF</div><div class="step-desc">Result, timeline, or trust signal</div></div>
+    <div class="framework-step"><div class="step-num">06</div><div class="step-name">CTA</div><div class="step-desc">Clear, low-friction call to action</div></div>
+  </div>
+</section>
+
+<!-- HOOKS -->
+<section class="hooks">
+  <div class="section-label">Prompt 01 Output</div>
+  <h2 class="section-title">8 Scroll-Stopping Hooks</h2>
+  <p class="section-sub">Different angles — same goal: stop the viewer in the first 3 seconds</p>
+  <div class="hooks-grid">
+    <div class="hook-card">
+      <div class="hook-angle angle-curiosity">Curiosity</div>
+      <div class="hook-text">"I wasn't expecting this serum to actually work... but here's my skin after 14 days."</div>
+      <div class="hook-why">Opens a loop. Viewer needs to see the result to close it.</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-angle angle-pain">Pain Point</div>
+      <div class="hook-text">"If your skin looks dull no matter how much water you drink or sleep you get — keep watching."</div>
+      <div class="hook-why">Directly mirrors the viewer's frustration. They feel seen immediately.</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-angle angle-result">Result</div>
+      <div class="hook-text">"My dark spots are literally fading and I've only been using this for two weeks."</div>
+      <div class="hook-why">Leads with the outcome. Aspirational viewers stop to find out how.</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-angle angle-controversy">Controversy</div>
+      <div class="hook-text">"I wasted ₹8,000 on branded serums before I found one that actually did something."</div>
+      <div class="hook-why">Challenges the assumption that expensive = effective. Instant relatability.</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-angle angle-relatability">Relatability</div>
+      <div class="hook-text">"Okay bestie, I need to tell you about the one thing that finally fixed my dull skin."</div>
+      <div class="hook-why">"Bestie" framing = peer-to-peer trust, not brand-to-consumer selling.</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-angle angle-question">Question</div>
+      <div class="hook-text">"Be honest — when was the last time your skin actually glowed without a filter?"</div>
+      <div class="hook-why">Asks the viewer something personal. Self-reflection drives engagement.</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-angle angle-story">Story</div>
+      <div class="hook-text">"Six months ago I stopped wearing foundation to work because of my skin. This is what changed."</div>
+      <div class="hook-why">Opens a compelling personal loop that the viewer needs to close.</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-angle angle-social">Social Proof</div>
+      <div class="hook-text">"92% of women who used this saw brighter skin in 14 days — I was one of them."</div>
+      <div class="hook-why">Specific numbers feel like real data, not marketing claims.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTS -->
+<section class="scripts">
+  <div class="section-label">Prompt 02 Output</div>
+  <h2 class="section-title">Platform-Specific UGC Scripts</h2>
+  <p class="section-sub">3 scripts adapted for different platforms and audience behavior</p>
+  <div class="scripts-tabs">
+    <button class="tab-btn active" onclick="showScript('reels',this)">📱 Instagram Reels</button>
+    <button class="tab-btn" onclick="showScript('shorts',this)">▶️ YouTube Shorts</button>
+    <button class="tab-btn" onclick="showScript('facebook',this)">💻 Facebook Ads</button>
+  </div>
+
+  <div class="script-panel active" id="reels">
+    <div class="script-card">
+      <div class="script-platform"><span class="platform-icon">📱</span><div><div class="platform-name">Instagram Reels</div><div class="platform-time">30–45 seconds</div></div></div>
+      <div class="script-section"><div class="script-section-label">Hook</div><div class="script-note">[Look directly at camera, slightly surprised expression]</div><div class="script-text">"Okay I was NOT expecting this to actually work."</div></div>
+      <div class="script-section"><div class="script-section-label">Problem</div><div class="script-note">[Casual, relatable tone]</div><div class="script-text">"My skin has been so dull lately. Like, I'm sleeping well, drinking water, doing everything right — and my skin still looks tired and uneven."</div></div>
+      <div class="script-section"><div class="script-section-label">Agitate</div><div class="script-note">[Slight frustration, nodding like talking to a friend]</div><div class="script-text">"I've tried so many serums. Dropped ₹2,000, ₹3,000 on products that promised glow and literally nothing happened."</div></div>
+      <div class="script-section"><div class="script-section-label">Solution</div><div class="script-note">[Holds up product naturally — not staged]</div><div class="script-text">"Then I tried GlowLab's Vitamin C Serum. I was honestly sceptical. But I kept using it because the texture felt so nice."</div></div>
+      <div class="script-section"><div class="script-section-label">Proof</div><div class="script-note">[Genuine smile, pointing to skin]</div><div class="script-text">"Two weeks later — my dark spots are fading, my skin tone is more even, and people at work actually asked if I changed my foundation."</div></div>
+      <div class="script-section"><div class="script-section-label">CTA</div><div class="script-note">[Soft, friendly close]</div><div class="script-text">"Link is in my bio. They have a 20% off code right now — GLOW20. Just try it."</div></div>
+    </div>
+  </div>
+
+  <div class="script-panel" id="shorts">
+    <div class="script-card">
+      <div class="script-platform"><span class="platform-icon">▶️</span><div><div class="platform-name">YouTube Shorts</div><div class="platform-time">45–60 seconds</div></div></div>
+      <div class="script-section"><div class="script-section-label">Hook</div><div class="script-note">[Sitting casually, talking to phone camera]</div><div class="script-text">"Six months ago I stopped wearing foundation to work because I was embarrassed about my skin. This is what changed."</div></div>
+      <div class="script-section"><div class="script-section-label">Problem</div><div class="script-note">[Thoughtful, honest]</div><div class="script-text">"I have naturally uneven skin — dark spots from old breakouts, dullness around my cheeks. I tried brightening creams, face masks, vitamin C tablets. Nothing moved the needle."</div></div>
+      <div class="script-section"><div class="script-section-label">Agitate</div><div class="script-note">[Leaning forward, more personal]</div><div class="script-text">"The worst part is spending money on products that influencers swear by and seeing zero results. My confidence was actually taking a hit."</div></div>
+      <div class="script-section"><div class="script-section-label">Solution</div><div class="script-note">[Picks up product, reads label casually]</div><div class="script-text">"My cousin recommended GlowLab's Vitamin C Serum. She'd been using it for a month and her skin looked insane. So I ordered it — honestly just to prove it wouldn't work for me either."</div></div>
+      <div class="script-section"><div class="script-section-label">Proof</div><div class="script-note">[Calm, matter-of-fact]</div><div class="script-text">"Day 14, I noticed my dark spots were visibly lighter. By week three, my skin tone was the most even it's ever been. Dermatologist-tested — and I can see why."</div></div>
+      <div class="script-section"><div class="script-section-label">CTA</div><div class="script-note">[Direct, warm]</div><div class="script-text">"Link in the description — use code GLOW20 for 20% off your first order. I genuinely wish I'd found this sooner."</div></div>
+    </div>
+  </div>
+
+  <div class="script-panel" id="facebook">
+    <div class="script-card">
+      <div class="script-platform"><span class="platform-icon">💻</span><div><div class="platform-name">Facebook Ads</div><div class="platform-time">60 seconds</div></div></div>
+      <div class="script-section"><div class="script-section-label">Hook</div><div class="script-note">[Warm, direct eye contact]</div><div class="script-text">"Be honest — when was the last time your skin actually glowed without a filter?"</div></div>
+      <div class="script-section"><div class="script-section-label">Problem</div><div class="script-note">[Empathetic, slower pace]</div><div class="script-text">"I'm in my late twenties and my skin started looking tired. Dull in the mornings, uneven patches, dark spots that just wouldn't go away."</div></div>
+      <div class="script-section"><div class="script-section-label">Agitate</div><div class="script-note">[Nods, relatable]</div><div class="script-text">"What frustrated me most was spending money on serums — good ones, expensive ones — and after two months seeing basically no change. I started thinking maybe my skin just... is like this."</div></div>
+      <div class="script-section"><div class="script-section-label">Solution</div><div class="script-note">[Relaxed, friendly recommendation tone]</div><div class="script-text">"A friend told me to try GlowLab's Vitamin C Brightening Serum. It has stabilised Vitamin C, Niacinamide, and Hyaluronic Acid — the real stuff, not marketing ingredients."</div></div>
+      <div class="script-section"><div class="script-section-label">Proof</div><div class="script-note">[Genuine, measured]</div><div class="script-text">"Week two — dark spots visibly lighter. Week three — people started noticing. 92% of users saw brighter skin in 14 days. I believe it because I lived it."</div></div>
+      <div class="script-section"><div class="script-section-label">CTA</div><div class="script-note">[Warm close, not pushy]</div><div class="script-text">"They're offering 20% off with code GLOW20. Link is right below. If dull skin is bothering you — it's worth trying. I promise."</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPTIONS -->
+<section class="captions">
+  <div class="section-label">Prompt 03 Output</div>
+  <h2 class="section-title">Platform Captions</h2>
+  <p class="section-sub">Optimized for each platform's reader behavior</p>
+  <div class="captions-grid">
+    <div class="caption-card">
+      <div class="caption-platform">📱 Instagram Reels</div>
+      <div class="caption-body">Was NOT expecting this serum to actually work on my dull skin 👀
+
+Two weeks of GlowLab Vitamin C Serum and my dark spots are visibly fading.
+No filter. No new foundation. Just actually brighter skin.
+
+✨ Use code GLOW20 for 20% off — link in bio
+
+#GlowLabSkincare #VitaminCSerum #SkincareRoutine #GlowUp #DullSkin</div>
+    </div>
+    <div class="caption-card">
+      <div class="caption-platform">▶️ YouTube Shorts</div>
+      <div class="caption-body">My skin went from dull & uneven to actually glowing — in 14 days.
+GlowLab Vitamin C Serum changed my skincare game completely.
+Link in description → Use code GLOW20 for 20% off your first order 🌟</div>
+    </div>
+    <div class="caption-card">
+      <div class="caption-platform">💻 Facebook Ads</div>
+      <div class="caption-body">I spent months trying to fix dull, uneven skin — until I found GlowLab.
+
+Their Vitamin C Brightening Serum has stabilised Vitamin C, Niacinamide, and Hyaluronic Acid — ingredients that actually work together.
+
+✅ Dermatologist-tested
+✅ 92% users saw brighter skin in 14 days
+✅ Free delivery across India
+
+Use code GLOW20 for 20% off — link below.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTAs -->
+<section class="ctas">
+  <div class="section-label">CTA Variations</div>
+  <h2 class="section-title">5 CTAs for A/B Testing</h2>
+  <p class="section-sub">Different angles — test which converts best for your audience</p>
+  <div class="cta-list">
+    <div class="cta-item"><div class="cta-item-text">"Use code GLOW20 — link in bio. Thank me later."</div><div class="cta-item-tag">Friendly · Instagram</div></div>
+    <div class="cta-item"><div class="cta-item-text">"Only limited stock at this price — grab yours now."</div><div class="cta-item-tag">Urgency · All Platforms</div></div>
+    <div class="cta-item"><div class="cta-item-text">"Join 50,000+ women who switched to GlowLab."</div><div class="cta-item-tag">Social Proof · Facebook</div></div>
+    <div class="cta-item"><div class="cta-item-text">"Ready for your glow-up? Link in bio."</div><div class="cta-item-tag">Aspirational · Reels</div></div>
+    <div class="cta-item"><div class="cta-item-text">"Try it for 14 days. You'll see why everyone's talking about it."</div><div class="cta-item-tag">Challenge · YouTube</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">GlowLab Skincare — UGC Ad Content Pack</div>
+  <div class="footer-note">Future Interns · Prompt Engineering Task 2 · FUTURE_PE_02<br>Intern: Eedhi Venkata Sai Varshith · CIN: FIT/APR26/PE2489</div>
+</footer>
+
+<script>
+function showScript(id, btn) {
+  document.querySelectorAll('.script-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
